@@ -13,7 +13,7 @@ namespace Tienda
         {
            if (!IsPostBack)
             {
-                
+               
             }
         }
         
@@ -29,6 +29,7 @@ namespace Tienda
             lblPrecio.Text = "";
             txtCantidad.Text = "";
             DropDownList1.SelectedIndex = 0;
+            btnModificar.Visible = false;
 
             }
 
@@ -37,26 +38,32 @@ namespace Tienda
            if (DropDownList1.SelectedIndex == 1)
             {
                 lblPrecio.Text = "1400";
+                txtCantidad.Enabled = true;
             }
            if (DropDownList1.SelectedIndex == 2)
             {
                 lblPrecio.Text = "1800";
+                txtCantidad.Enabled = true;
             }
             if (DropDownList1.SelectedIndex == 3)
             {
                 lblPrecio.Text = "1000";
+                txtCantidad.Enabled = true;
             }
             if (DropDownList1.SelectedIndex == 4)
             {
                 lblPrecio.Text = "2800";
+                txtCantidad.Enabled = true;
             }
             if (DropDownList1.SelectedIndex == 5)
             {
                 lblPrecio.Text = "3800";
+                txtCantidad.Enabled = true;
             }
             if (DropDownList1.SelectedIndex == 6)
             {
                 lblPrecio.Text = "1800";
+                txtCantidad.Enabled = true;
             }
         }
 
@@ -92,11 +99,13 @@ namespace Tienda
             lblTotal.Text = acum.ToString();
             Limpiarcampos();
             MostrarCampos();
+            txtCantidad.Enabled = false;
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int indiceFila = Convert.ToInt32(e.CommandArgument.ToString());
+            
 
             if (e.CommandName == "Editar")
             {
@@ -104,7 +113,10 @@ namespace Tienda
                 lblPrecio.Text = GridView1.Rows[indiceFila].Cells[1].Text;
                 txtCantidad.Text = GridView1.Rows[indiceFila].Cells[2].Text;
 
-                DropDownList1.Enabled = false;    
+                DropDownList1.Enabled = false;
+                btnAgregar.Visible = false;
+                btnModificar.Visible = true;
+                txtCantidad.Enabled = true;
             }
 
 
@@ -139,8 +151,11 @@ namespace Tienda
                     lblTotal.Visible = false;
                     lblAcumulado.Visible = false;
                     btnfacturar.Visible = false;
+                    btnModificar.Visible = false;
                 }
+
             }
+            
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
@@ -175,6 +190,8 @@ namespace Tienda
             lblTotal.Text = acum.ToString();
             Limpiarcampos();
             DropDownList1.Enabled = true;
+            btnAgregar.Visible = true;
+            txtCantidad.Enabled = false;
         }
 
         protected void btnfacturar_Click(object sender, EventArgs e)

@@ -54,13 +54,13 @@
                                     <label>Cantidad</label>
                                 </div>
                                 <div class="col-md-4">
-                                    <asp:TextBox ID="txtCantidad" CssClass="form-control " placeholder="Ingrese la cantidad" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtCantidad" CssClass="form-control " placeholder="Ingrese la cantidad" runat="server" Enabled="false"></asp:TextBox>
                                 </div>
                             </div>
                             <br />
                             <div class="row text-center">
                                 <asp:Button ID="btnAgregar" runat="server" CssClass="btn btn-default text-center" Text="Agregar" OnClick="btnAgregar_Click" />&nbsp;
-                                <asp:Button ID="btnModificar" runat="server" CssClass="btn btn-default text-center" Text="Modificar" OnClick="btnModificar_Click" />
+                                <asp:Button ID="btnModificar" runat="server" CssClass="btn btn-default text-center" Text="Modificar" OnClick="btnModificar_Click" Visible="false" />
                             </div>
 
                             <br />
